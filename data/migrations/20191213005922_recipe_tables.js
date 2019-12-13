@@ -48,4 +48,10 @@ exports.up = function(knex) {
     });
 };
 
-exports.down = function(knex) {};
+exports.down = function(knex) {
+  return knex.schema
+    .dropTableIfExists("recipes")
+    .dropTableIfExists("instructions")
+    .dropTableIfExists("recipe_instructions")
+    .dropTableIfExists("recipe_ingredients");
+};
